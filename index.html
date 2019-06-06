@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ziggurat api test</title>
+</head>
+<body>
+    <h1>hello world!</h1>
+
+
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    var corsProxy = 'https://cors-anywhere.herokuapp.com/';
+
+
+        /* 
+        
+        protocol://domain/route?params=values&moreoarames=morevalues......
+        https://api.yelo.com/v3/business/search
+        http://someapi.movies.com/movies?year=1999&genre=something&
+        english
+        */
+
+    var apiKey = '8rhhmRF5-FCynUFAaqinWGdHndqLlsEQhouEibkZ1QuZsgHj6sRXs7W-TaE8UU0yNEP2JUDnYwBREiqRLlzik-FDZydCEk3oWR4J4gTO6GLIcVaThRBREy2hyvP2XHYx';
+
+    var queryURL = corsProxy + "https://api.yelp.com/v3/businesses/search?term=food&location=NYC";
+
+    $.ajax({
+        url: queryURL,
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${apiKey}`
+        }
+    }).then(function(response) {
+        console.log(response)
+    
+    
+    })
+    
+</script>
+
+
+</body>
+</html>
