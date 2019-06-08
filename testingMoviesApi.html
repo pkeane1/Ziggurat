@@ -12,17 +12,40 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-var queryURL = "https://api.internationalshowtimes.com/v4/movies/12111/?apikey=wgPvVNS7wkNEudSNxDBXcxpo5nsHBav3";
+// var queryURL = "https://api.internationalshowtimes.com/v4/movies?search_query=Avengers&search_field=title&?apikey=wgPvVNS7wkNEudSNxDBXcxpo5nsHBav3";
 
-$.ajax({
-  url: queryURL,
-  method: "GET"
+// $.ajax({
+//   url: queryURL,
+//   method: "GET"
+// })
+
+//   .then(function(response) {
+// console.log(response);
+
+//   });
+
+  jQuery.ajax({
+    url: "https://api.internationalshowtimes.com/v4/movies/",
+    type: "GET",
+    data: {
+        "countries": "US",
+    },
+    headers: {
+        "X-API-Key": "wgPvVNS7wkNEudSNxDBXcxpo5nsHBav3",
+    },
 })
+.done(function(data, textStatus, jqXHR) {
+    console.log("HTTP Request Succeeded: " + jqXHR.status);
+    console.log(data.movies[0].title);
+    console.log(data.movies[0].poster_image_thumbnail);
+})
+.fail(function(jqXHR, textStatus, errorThrown) {
+    console.log("HTTP Request Failed");
+})
+.always(function() {
+    /* ... */
+});
 
-  .then(function(response) {
-console.log(response.movie.genres[0].name);
-console.log(response.movie);
-  });
 
 </script>
 </body>
