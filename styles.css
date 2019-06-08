@@ -1,0 +1,43 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.container h1 {
+  text-align: center;
+  font-family: "Bitter", serif;
+  font-size: 90px;
+  color: #fea11a;
+  z-index: 1;
+}
+.container h2 {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 30px;
+  text-align: center;
+  color: #fe4b1a;
+  font-style: italic;
+  z-index: 1;
+  float: left;
+}
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+p {
+  font-family: "Open Sans Condensed", sans-serif;
+  color: #fe4b1a;
+}
+
+#main {
+  z-index: 1;
+  align-items: center;
+  display: inline, flex;
+  flex-flow: row wrap;
+}
