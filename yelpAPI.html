@@ -11,6 +11,7 @@
 
     <div id="testDiv"></div>
 
+
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
     
@@ -38,17 +39,28 @@
     }).then(function(response) {
         console.log(response)
         
-        name = response.businesses[1].name;
+        name1 = response.businesses[1].name;
+        name = response.businesses[1].location.address1;
+        cat = response.businesses[1].categories[0].title;
+        resimage = response.businesses[1].image_url;
         console.log(name)
 
-        var namley = $("<h1>").text(name);
-       
         
-       
+        var namley1 = $("<h3>").text(name1)
+        var namley = $("<p>").text(name);
+        var categories = $("<p>").text(cat);
+        var picture = $("<img>");
         
-        $("#testDiv").append(namley);
+        picture.attr("src",resimage)
+        picture.css("width","50px")
 
-    
+
+        $("#testDiv").append(namley1);
+        $("#testDiv").append(namley);
+        $("#testDiv").prepend(cat);
+        
+        $("#testDiv").append(picture);
+        
     })
     
 </script>
