@@ -9,7 +9,9 @@
 <body>
     <h1>hello world!</h1>
 
+    <div id="name"></div>
     <div id="testDiv"></div>
+    <div id ="cat"></div>
 
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -38,14 +40,19 @@
     }).then(function(response) {
         console.log(response)
         
-        name = response.businesses[1].name;
+        name1 = response.businesses[1].name;
+        name = response.businesses[1].location.address1;
+       
+        
         console.log(name)
 
+        
+        var namley1 = $("<h1>").text(name1)
         var namley = $("<h1>").text(name);
-       
+        
         
        
-        
+        $("#name").append(namley1)
         $("#testDiv").append(namley);
 
     
