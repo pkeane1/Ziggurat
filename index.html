@@ -9,6 +9,7 @@
 <body>
     <h1>hello world!</h1>
 
+    <div id="testDiv"></div>
 
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -26,7 +27,7 @@
 
     var apiKey = '8rhhmRF5-FCynUFAaqinWGdHndqLlsEQhouEibkZ1QuZsgHj6sRXs7W-TaE8UU0yNEP2JUDnYwBREiqRLlzik-FDZydCEk3oWR4J4gTO6GLIcVaThRBREy2hyvP2XHYx';
 
-    var queryURL = corsProxy + "https://api.yelp.com/v3/businesses/search?term=food&location=NYC";
+    var queryURL = corsProxy + "https://api.yelp.com/v3/businesses/search?term=restaurants&location=NYC&categories=french&limit=10";
 
     $.ajax({
         url: queryURL,
@@ -36,7 +37,17 @@
         }
     }).then(function(response) {
         console.log(response)
-    
+        
+        name = response.businesses[1].name;
+        console.log(name)
+
+        var namley = $("<h1>").text(name);
+       
+        
+       
+        
+        $("#testDiv").append(namley);
+
     
     })
     
