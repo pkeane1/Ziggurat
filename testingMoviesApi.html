@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Movies API</title>
+</head>
+<body>
+<p>Testing Movie API</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+var queryURL = "https://api.internationalshowtimes.com/v4/movies/12111/?apikey=wgPvVNS7wkNEudSNxDBXcxpo5nsHBav3";
+
+$.ajax({
+  url: queryURL,
+  method: "GET"
+})
+
+  .then(function(response) {
+console.log(response.movie.genres[0].name);
+console.log(response.movie);
+  });
+
+</script>
+</body>
+</html>
