@@ -24,6 +24,8 @@
 
 //   });
 
+//This section of the API is fetching cinemas by zip code and displays name, address, phone#, website
+
   jQuery.ajax({
     url: "https://api.internationalshowtimes.com/v4/cinemas/",
     type: "GET",
@@ -37,9 +39,6 @@
 .done(function(data, textStatus, jqXHR) {
     console.log("HTTP Request Succeeded: " + jqXHR.status);
     console.log(data);
-    //console.log(data.movies[0].title);
-    //console.log(data.movies[0].poster_image_thumbnail);
-    //console.log(data.cities[1676].name);
     for( var i =0 ; i < data.cinemas.length; i++) {
        if (data.cinemas[i].location.address.zipcode === "11743")
        {
@@ -52,7 +51,7 @@
 
       }
     }
-    //console.log(data.cinemas[0].location.address.city);
+  
 })
 .fail(function(jqXHR, textStatus, errorThrown) {
     console.log("HTTP Request Failed");
