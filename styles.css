@@ -35,7 +35,7 @@ p {
   color: #fe4b1a;
 }
 
-#main {
+#keyword {
   z-index: 1;
   align-items: center;
   display: inline, flex;
