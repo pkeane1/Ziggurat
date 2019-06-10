@@ -18,22 +18,25 @@ headers: {
 console.log(response)
 
 name1 = response.businesses[1].name;
-name = response.businesses[1].location.address1;
+
+zip = response.businesses[1].location.display_address;
 cat = response.businesses[1].categories[0].title;
 resimage = response.businesses[1].image_url;
 console.log(name)
 
 var namley1 = $("<h3>").text(name1)
-var namley = $("<p>").text(name);
+
+var zipCode = $("<p>").text(zip)
 var categories = $("<p>").text(cat);
 var picture = $("<img>");
 
 picture.attr("src",resimage)
 picture.css("width","50px")
 $("#restaurant-api-response").append(namley1);
-$("#restaurant-api-response").append(namley);
+;
+$("#restaurant-api-response").append(zip)
 $("#restaurant-api-response").prepend(cat);
 
-$("#restaurant-api-response").append(picture);
+$("#restaurant-api-response").prepend(picture);
 
 })
