@@ -13,6 +13,9 @@ $("#search-button").on("click", function(event) {
   var keyword = $("#search-keyword")
     .val()
     .trim();
+  $(".container").hide();
+
+  // $("") .show();
 
   var apiKey =
     "8rhhmRF5-FCynUFAaqinWGdHndqLlsEQhouEibkZ1QuZsgHj6sRXs7W-TaE8UU0yNEP2JUDnYwBREiqRLlzik-FDZydCEk3oWR4J4gTO6GLIcVaThRBREy2hyvP2XHYx";
@@ -22,6 +25,8 @@ $("#search-button").on("click", function(event) {
     keyword +
     "&limit=10";
 
+  // show loading gif
+
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -30,6 +35,8 @@ $("#search-button").on("click", function(event) {
     }
   }).then(function(response) {
     console.log(response);
+
+    // hide loading gif
 
     name1 = response.businesses[1].name;
     name = response.businesses[1].location.address1;
