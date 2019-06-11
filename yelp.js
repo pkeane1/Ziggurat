@@ -21,7 +21,7 @@ $("#search-button").on("click", function(event) {
     "8rhhmRF5-FCynUFAaqinWGdHndqLlsEQhouEibkZ1QuZsgHj6sRXs7W-TaE8UU0yNEP2JUDnYwBREiqRLlzik-FDZydCEk3oWR4J4gTO6GLIcVaThRBREy2hyvP2XHYx";
   var queryURL =
     corsProxy +
-    "https://api.yelp.com/v3/businesses/search?term=restaurants&location=NYC&categories=" +
+    "https://api.yelp.com/v3/businesses/search?term=restaurants&location=10475&categories=" +
     keyword +
     "&limit=10";
 
@@ -36,15 +36,6 @@ $("#search-button").on("click", function(event) {
   }).then(function(response) {
     console.log(response);
 
-<<<<<<< HEAD
-    // hide loading gif
-
-    name1 = response.businesses[1].name;
-    name = response.businesses[1].location.address1;
-    cat = response.businesses[1].categories[0].title;
-    resimage = response.businesses[1].image_url;
-    console.log(name);
-=======
       for(var i=0; i < response.businesses.length; i++){
 
           name1 = response.businesses[i].name;
@@ -52,7 +43,6 @@ $("#search-button").on("click", function(event) {
           cat = response.businesses[i].categories[0].title;
           resimage = response.businesses[i].image_url;
           console.log(name);
->>>>>>> Pierce-branch
 
     var namley1 = $("<h3>").text(name1);
     var zipCode = $("<p>").text(zip);
