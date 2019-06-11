@@ -1,52 +1,131 @@
-
 <!DOCTYPE html>
 <html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Movies API</title>
+  </head>
 
-<head>
+  <body>
+    <h1>Welcome to Ziggurat Movie Selection</h1>
 
-  <meta charset="UTF-8">
-  <title>Movies API</title>
-</head>
-<body>
-<p>Testing Movie API</p>
+    <h2>Playing Now....</h2>
+    <h5 id="cinema-name"></h5>
+    <br /><br />
+    <p id="cinema-address"></p>
+    <br /><br />
+    <p id="cinema-phone"></p>
+    <br /><br />
+    <p id="cinema-website"></p>
+    <br /><br />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-// var queryURL = "https://api.internationalshowtimes.com/v4/movies?search_query=Avengers&search_field=title&?apikey=wgPvVNS7wkNEudSNxDBXcxpo5nsHBav3";
+    <div id="movie-response-div"></div>
 
-// $.ajax({
-//   url: queryURL,
-//   method: "GET"
-// })
+    <div class="movies"></div>
+    <br />
 
-//   .then(function(response) {
-// console.log(response);
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      var zipCode = 11743;
+      var cinemaID;
+      var genreID = "3";
+      jQuery
+        .ajax({
+          url: "https://api.internationalshowtimes.com/v4/cinemas/",
+          type: "GET",
+          data: {
+            countries: "US"
+          },
+          headers: {
+            "X-API-Key": "wgPvVNS7wkNEudSNxDBXcxpo5nsHBav3"
+          }
+        })
+        .then(function(data, textStatus, jqXHR) {
+          console.log("I am in cinemas response");
+          console.log("HTTP Request Succeeded: " + jqXHR.status);
+          //this will console log the whole cinema object
+          //console.log(data.cinemas[0]);
+          //this will console log zip codes in each cinemas
+          //console.log(data.cinemas[0].location.address.zipcode);
+          for (var i = 0; i < data.cinemas.length; i++) {
+            if (data.cinemas[i].location.address.zipcode === "10475") {
+              // console.log("cinema at 0 in array");
+              // console.log(data.cinemas[i].name);
+              // console.log(data.cinemas[i].location.address.display_text);
+              // console.log(data.cinemas[i].telephone);
+              // console.log(data.cinemas[i].website);
+              // console.log(data.cinemas[i].id);
+              cinemaID = data.cinemas[i].id;
+              $("#cinema-name").append(data.cinemas[i].name);
+              $("#cinema-address").append(
+                data.cinemas[i].location.address.display_text
+              );
+              $("#cinema-phone").append(data.cinemas[i].telephone);
+              $("#cinema-website").append(data.cinemas[i].website);
+            }
+          }
+        })
+        .then(function() {
+          jQuery
+            .ajax({
+              url: "https://api.internationalshowtimes.com/v4/genres/",
+              type: "GET",
+              data: {
+                lan: "en"
+              },
+              headers: {
+                "X-API-Key": "wgPvVNS7wkNEudSNxDBXcxpo5nsHBav3"
+              }
+            })
+            .then(function(data, textStatus, jqXHR) {
+              console.log("I am in cinemas genres");
+              console.log("HTTP Request Succeeded: " + jqXHR.status);
+              console.log(data);
+              // genreID = "3";
+              console.log(genreID);
+            });
+        })
+        .then(function() {
+          console.log(genreID);
+          jQuery
+            .ajax({
+              url: "https://api.internationalshowtimes.com/v4/movies/",
+              type: "GET",
+              data: {
+                countries: "US",
+                cinema_id: cinemaID,
+                genre_ids: genreID
+              },
+              headers: {
+                "X-API-Key": "wgPvVNS7wkNEudSNxDBXcxpo5nsHBav3"
+              }
+            })
+            .then(function(data, textStatus, jqXHR) {
+              console.log("I am in movies response");
+              // console.log("HTTP Request Succeeded: " + jqXHR.status);
+              console.log(data);
+              console.log("here are the movies playing in this cinema");
+              for (var i = 0; i < data.movies.length; i++) {
+                // console.log(data.movies[i].title);
+                // console.log(data.movies[i].poster_image_thumbnail);
+                var movieTitle = data.movies[i].title;
+                genreID = data.movies[i].id;
+                $(".movies").append("<p>" + movieTitle + "</p>");
 
-//   });
+                var movieImage = $("<img>");
+                movieImage.attr("src", data.movies[i].poster_image_thumbnail);
+                $(".movies").append(movieImage);
+              }
+            });
+        })
 
-  jQuery.ajax({
-    url: "https://api.internationalshowtimes.com/v4/movies/",
-    type: "GET",
-    data: {
-        "countries": "US",
-    },
-    headers: {
-        "X-API-Key": "wgPvVNS7wkNEudSNxDBXcxpo5nsHBav3",
-    },
-})
-.done(function(data, textStatus, jqXHR) {
-    console.log("HTTP Request Succeeded: " + jqXHR.status);
-    console.log(data.movies[0].title);
-    console.log(data.movies[0].poster_image_thumbnail);
-})
-.fail(function(jqXHR, textStatus, errorThrown) {
-    console.log("HTTP Request Failed");
-})
-.always(function() {
-    /* ... */
-});
+        .fail(function(jqXHR, textStatus, errorThrown) {
+          console.log("HTTP Request Failed");
+        })
+        .always(function() {
+          /* ... 
 
-
-</script>
-</body>
+		*/
+        });
+    </script>
+  </body>
 </html>
