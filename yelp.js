@@ -36,6 +36,7 @@ $("#search-button").on("click", function(event) {
   }).then(function(response) {
     console.log(response);
 
+<<<<<<< HEAD
     // hide loading gif
 
     name1 = response.businesses[1].name;
@@ -43,18 +44,28 @@ $("#search-button").on("click", function(event) {
     cat = response.businesses[1].categories[0].title;
     resimage = response.businesses[1].image_url;
     console.log(name);
+=======
+      for(var i=0; i < response.businesses.length; i++){
+
+          name1 = response.businesses[i].name;
+          zip = response.businesses[i].location.display_address;
+          cat = response.businesses[i].categories[0].title;
+          resimage = response.businesses[i].image_url;
+          console.log(name);
+>>>>>>> Pierce-branch
 
     var namley1 = $("<h3>").text(name1);
-    var namley = $("<p>").text(name);
+    var zipCode = $("<p>").text(zip);
     var categories = $("<p>").text(cat);
     var picture = $("<img>");
 
     picture.attr("src", resimage);
     picture.css("width", "50px");
     $("#restaurant-api-response").append(namley1);
-    $("#restaurant-api-response").append(namley);
-    $("#restaurant-api-response").prepend(cat);
+    $("#restaurant-api-response").append(zipCode)
+    $("#restaurant-api-response").append(categories);
 
     $("#restaurant-api-response").append(picture);
+    }
   });
 });
