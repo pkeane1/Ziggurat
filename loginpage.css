@@ -47,3 +47,10 @@ a {
     padding-top: 30px;
 
 }
+
+h1{
+    color: #fea11a;
+    font-family: "Bitter", serif;
+    z-index: 1;
+}
+
