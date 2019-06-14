@@ -1,0 +1,56 @@
+/* body {
+        background: url() no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+       } */
+
+.video-container {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+      }
+
+.card {
+    margin-top:50px;
+    opacity: .7;
+}
+
+h3 {
+    color: #fea11a;
+    font-family: "Bitter", serif;
+}
+
+p {
+    color: #fea11a;
+    font-family: "Bitter", serif;
+}
+
+a {
+    
+    font-family: "Bitter", serif;
+}
+
+.empas {
+    color: #fea11a;
+    font-family: "Bitter", serif;
+}
+
+.secondcon {
+    margin-top:50px;
+    opacity: .7;
+    
+    padding-bottom: 30px;
+    padding-top: 30px;
+
+}
+
+h1{
+    color: #fea11a;
+    font-family: "Bitter", serif;
+    z-index: 1;
+}
+
