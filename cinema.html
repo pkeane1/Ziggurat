@@ -13,8 +13,6 @@
 
   <body>
     <h1>Welcome to Ziggurat Movie Selection</h1>
-
-    <!-- Left-aligned media object -->
     <div class="media">
       <div class="media-left">
         <img src="img_avatar1.png" class="media-object" style="width:60px" />
@@ -30,67 +28,21 @@
     <div class="container">
       <div class="col-sm-3 col-md-6 col-lg-4 col-xl-2 bg-success"></div>
     </div>
-    <!-- <h2>Playing Now....</h2>
-    <h5 id="cinema-name"></h5>
-    <p id="cinema-address"></p>
-    <p id="cinema-phone"></p>
-    <p id="cinema-website"></p>
-    <br /><br /> -->
 
     <div id="movie-response-div"></div>
 
-    <div class="movies"></div>
+    <div class="movies" style="width:800px; margin:0 auto;"></div>
     <br />
-
-    <!-- <div class="container">
-      <h2>Basic Modal Example</h2>
-      <!-- Trigger the modal with a button -->
-    <!-- <button
-        type="button"
-        class="btn btn-info btn-lg"
-        data-toggle="modal"
-        data-target="#myModal"
-      >
-        Open Modal
-      </button> -->
-
-    <!-- Modal
-      <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-          <!-- Modal content-->
-    <!-- <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">
-                &times;
-              </button>
-              <h4 class="modal-title">Modal Header</h4>
-            </div>
-            <div class="modal-body">
-              <p>Some text in the modal.</p>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-default"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
       //var zipCode = 11101;
       var cinemaID;
-      var genreID = "7";
-      var cityName = "Staten Island";
-      ////////
-      getCinema();
+      var genreID = "17";
+      var cityName = "Brooklyn";
 
+      getCinema();
+      ///this function will return cinemas
       function getCinema() {
         jQuery
           .ajax({
@@ -128,13 +80,14 @@
                   "<button>" + "Go Here" + "</button>"
                 );
                 selectCinema = data.cinemas[i].id;
+                console.log(selectCinema);
                 selectCinemaButton.attr({
-                  id: "selectCinema"
+                  id: selectCinema
                   //value: "Select Cinema"
                 });
                 console.log(selectCinema);
                 $(".media-body").append(selectCinemaButton);
-                $("#selectCinema").click(function() {
+                $("#" + selectCinema).click(function() {
                   getMovie();
                 });
               }
@@ -142,7 +95,7 @@
           });
       }
 
-      //getMovie();
+      //this function will pull movies by genre selected
       function getMovie() {
         jQuery
           .ajax({
@@ -191,6 +144,7 @@
                   var movieSynopsis = data.movies[i].synopsis;
                   genreID = data.movies[i].id;
                   var movieImage = $("<img>");
+                  //add on click function here to enable playing trailer
                   movieImage.attr("src", data.movies[i].poster_image_thumbnail);
                   var movieURL =
                     data.movies[i].trailers[0].trailer_files[0].url;
@@ -205,7 +159,9 @@
                   $(".movies").append("<h3>" + movieTitle + "</h3>");
                   $(".movies").append(movieImage);
                   $(".movies").append(
-                    "<p class=card-text>" + movieSynopsis + "</p>"
+                    "<p class=card-text style=width:800px margin:0 auto text-align: center>" +
+                      movieSynopsis +
+                      "</p>"
                   );
                   //$(".movies").append(movieTrailer);
                 }
