@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Movies API</title>
+  </head>
+
+  <body>
+    <h1>Welcome to Ziggurat Movie Selection</h1>
+
+    <!-- Left-aligned media object -->
+    <div class="media">
+      <div class="media-left">
+        <img src="img_avatar1.png" class="media-object" style="width:60px" />
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading" id="cinema-name"></h4>
+        <p id="cinema-address"></p>
+        <p id="cinema-phone"></p>
+        <p id="cinema-website"></p>
+      </div>
+    </div>
+    <hr />
+    <div class="container">
+      <div class="col-sm-3 col-md-6 col-lg-4 col-xl-2 bg-success"></div>
+    </div>
+    <!-- <h2>Playing Now....</h2>
+    <h5 id="cinema-name"></h5>
+    <p id="cinema-address"></p>
+    <p id="cinema-phone"></p>
+    <p id="cinema-website"></p>
+    <br /><br /> -->
+
+    <div id="movie-response-div"></div>
+
+    <div class="movies"></div>
+    <br />
+
+    <!-- <div class="container">
+      <h2>Basic Modal Example</h2>
+      <!-- Trigger the modal with a button -->
+    <!-- <button
+        type="button"
+        class="btn btn-info btn-lg"
+        data-toggle="modal"
+        data-target="#myModal"
+      >
+        Open Modal
+      </button> -->
+
+    <!-- Modal
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+    <!-- <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+              <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-default"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      //var zipCode = 11101;
+      var cinemaID;
+      var genreID = "7";
+      var cityName = "Staten Island";
+      ////////
+      getCinema();
+
+      function getCinema() {
+        jQuery
+          .ajax({
+            url: "https://api.internationalshowtimes.com/v4/cinemas/",
+            type: "GET",
+            data: {
+              countries: "US"
+              //city_ids:
+            },
+            headers: {
+              "X-API-Key": "wgPvVNS7wkNEudSNxDBXcxpo5nsHBav3"
+            }
+          })
+          .then(function(data, textStatus, jqXHR) {
+            console.log("I am in cinemas response");
+            console.log("HTTP Request Succeeded: " + jqXHR.status);
+            var selectCinema;
+            for (var i = 0; i < data.cinemas.length; i++) {
+              //console.log(data.cinemas[i]);
+              if (data.cinemas[i].location.address.city === cityName) {
+                cinemaID = data.cinemas[i].id;
+                $(".media-body").append(
+                  "<h5>" + data.cinemas[i].name + "</h5>"
+                );
+                $(".media-body").append(
+                  "<p>" + data.cinemas[i].location.address.display_text + "</p>"
+                );
+                $(".media-body").append(
+                  "<p>" + data.cinemas[i].telephone + "</p>"
+                );
+                $(".media-body").append(
+                  "<p>" + data.cinemas[i].website + "</p>"
+                );
+                var selectCinemaButton = $(
+                  "<button>" + "Go Here" + "</button>"
+                );
+                selectCinema = data.cinemas[i].id;
+                selectCinemaButton.attr({
+                  id: "selectCinema"
+                  //value: "Select Cinema"
+                });
+                console.log(selectCinema);
+                $(".media-body").append(selectCinemaButton);
+                $("#selectCinema").click(function() {
+                  getMovie();
+                });
+              }
+            }
+          });
+      }
+
+      //getMovie();
+      function getMovie() {
+        jQuery
+          .ajax({
+            url: "https://api.internationalshowtimes.com/v4/genres/",
+            type: "GET",
+            data: {
+              lan: "en"
+            },
+            headers: {
+              "X-API-Key": "wgPvVNS7wkNEudSNxDBXcxpo5nsHBav3"
+            }
+          })
+          .then(function(data, textStatus, jqXHR) {
+            console.log("I am in cinemas genres");
+            console.log("HTTP Request Succeeded: " + jqXHR.status);
+            console.log(data);
+            // genreID = "3";
+            console.log(genreID);
+          })
+
+          .then(function() {
+            console.log(genreID);
+            jQuery
+              .ajax({
+                url: "https://api.internationalshowtimes.com/v4/movies/",
+                type: "GET",
+                data: {
+                  countries: "US",
+                  cinema_id: cinemaID,
+                  genre_ids: genreID,
+                  fields: "id,title,poster_image_thumbnail,synopsis,trailers"
+                },
+                headers: {
+                  "X-API-Key": "wgPvVNS7wkNEudSNxDBXcxpo5nsHBav3"
+                }
+              })
+              .then(function(data, textStatus, jqXHR) {
+                console.log("I am in movies response");
+                // console.log("HTTP Request Succeeded: " + jqXHR.status);
+                console.log(data);
+                console.log("here are the movies playing in this cinema");
+                for (var i = 0; i < data.movies.length; i++) {
+                  // console.log(data.movies[i].title);
+                  // console.log(data.movies[i].poster_image_thumbnail);
+                  var movieTitle = data.movies[i].title;
+                  var movieSynopsis = data.movies[i].synopsis;
+                  genreID = data.movies[i].id;
+                  var movieImage = $("<img>");
+                  movieImage.attr("src", data.movies[i].poster_image_thumbnail);
+                  var movieURL =
+                    data.movies[i].trailers[0].trailer_files[0].url;
+                  movieURL = movieURL.replace("watch?v=", "embed/");
+                  var movieTrailer = $("<iframe>");
+                  movieTrailer.attr(
+                    "src",
+                    // data.movies[i].trailers[0].trailer_files[0].url +
+                    //   "&output=embed"
+                    movieURL
+                  );
+                  $(".movies").append("<h3>" + movieTitle + "</h3>");
+                  $(".movies").append(movieImage);
+                  $(".movies").append(
+                    "<p class=card-text>" + movieSynopsis + "</p>"
+                  );
+                  //$(".movies").append(movieTrailer);
+                }
+              });
+          })
+
+          .fail(function(jqXHR, textStatus, errorThrown) {
+            console.log("HTTP Request Failed");
+          })
+          .always(function() {
+            /* ...
+
+      */
+          });
+      }
+
+      // ////////
+    </script>
+  </body>
+</html>
