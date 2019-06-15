@@ -1,5 +1,7 @@
 var cinemaID;
-      var genreID = "17";
+      var genreRandom= ["14","17","2"]
+      var genreID = genreRandom[Math.floor(Math.random()* genreRandom.length)];
+      console.log(genreID)
       var cityName;
     // when user enters city and click button it will invoke API
       $("#search-button").on("click", function(event) {
