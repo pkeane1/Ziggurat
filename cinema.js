@@ -67,6 +67,8 @@ $("#search-button").on("click", function(event) {
             });
           }
         }
+        var elmnt = document.getElementById("cinemaContainer");
+        elmnt.scrollIntoView();
       });
   }
 
