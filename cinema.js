@@ -1,8 +1,16 @@
 var cinemaID;
       var genreID = "17";
-      var cityName = "Brooklyn";
+      var cityName;
+    // when user enters city and click button it will invoke API
+      $("#search-button").on("click", function(event) {
+        event.preventDefault();
+        // console.log("I've been clicked");
+         cityName = $("#search-keyword")
+          .val()
+          .trim();
+        $(".container").hide();
 
-      getCinema();
+      getCinema(); 
       ///this function will return cinemas
      ///
       function getCinema() {
@@ -139,3 +147,4 @@ var cinemaID;
       */
           });
       }
+    });
