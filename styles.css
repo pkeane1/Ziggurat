@@ -40,6 +40,26 @@
   align-content: center;
 }
 
+.card3{
+  align-content: center;
+}
+
+.card3-body{
+  color: #fe4b1a;
+  font-family: "Open Sans Condensed", sans-serif;
+  background-color: #ffcc80;
+  text-overflow: scroll;
+  align-content: center;
+}*/
+
+.restaurant-api-response {
+  color: #fe4b1a;
+  font-family: "Open Sans Condensed", sans-serif;
+  background-color: #ffcc80;
+  text-overflow: scroll;
+  align-content: center;
+}
+
 /*p.card-text {
   width: 50rem;
   align-content: center;
