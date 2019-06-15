@@ -9,7 +9,7 @@ english
 
 $("#search-button").on("click", function(event) {
   event.preventDefault();
-  console.log("I've been clicked");
+  // console.log("I've been clicked");
   var keyword = $("#search-keyword")
     .val()
     .trim();
@@ -36,26 +36,25 @@ $("#search-button").on("click", function(event) {
   }).then(function(response) {
     console.log(response);
 
-      for(var i=0; i < response.businesses.length; i++){
+    for (var i = 0; i < response.businesses.length; i++) {
+      name1 = response.businesses[i].name;
+      zip = response.businesses[i].location.display_address;
+      cat = response.businesses[i].categories[0].title;
+      resimage = response.businesses[i].image_url;
+      console.log(name);
 
-          name1 = response.businesses[i].name;
-          zip = response.businesses[i].location.display_address;
-          cat = response.businesses[i].categories[0].title;
-          resimage = response.businesses[i].image_url;
-          console.log(name);
+      var namley1 = $("<h3>").text(name1);
+      var zipCode = $("<p>").text(zip);
+      var categories = $("<p>").text(cat);
+      var picture = $("<img>");
 
-    var namley1 = $("<h3>").text(name1);
-    var zipCode = $("<p>").text(zip);
-    var categories = $("<p>").text(cat);
-    var picture = $("<img>");
+      picture.attr("src", resimage);
+      picture.css("width", "50px");
+      $("#restaurant-api-response").append(namley1);
+      $("#restaurant-api-response").append(zipCode);
+      $("#restaurant-api-response").append(categories);
 
-    picture.attr("src", resimage);
-    picture.css("width", "50px");
-    $("#restaurant-api-response").append(namley1);
-    $("#restaurant-api-response").append(zipCode)
-    $("#restaurant-api-response").append(categories);
-
-    $("#restaurant-api-response").append(picture);
+      $("#restaurant-api-response").append(picture);
     }
   });
 });

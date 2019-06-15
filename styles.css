@@ -6,16 +6,43 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  
 }
 
+
+ 
 #search-keyword {
-  width: 200%;
+  width: 175%;
   height: 25px;
 float: right;
 clear: left;
 align-content: center;
+border-color:white;
 
 
+}
+
+#general {
+  color: #fe4b1a;
+  margin-top: 10%;
+  margin-right: 45%;
+  float: right;
+  font-family: "Open Sans Condensed", sans-serif;
+  text-align: center;
+  align-content: center;
+  z-index: 1;
+  background-color: #ffcc80;
+  border-color: #fe4b1a
+  
+}
+
+
+.container h1 {
+  text-align: center;
+  font-family: "Bitter", serif;
+  font-size: 90px;
+  color: #fea11a;
+  z-index: 1;
 }
 
 #search-button {
@@ -26,7 +53,17 @@ align-content: center;
   font-size: 18px;
   width: 100%;
   background-color: #fea11a;
+  border-color: black;
+  display: inline;
   
+}
+
+.sign-buttons {
+  float: right;
+}
+
+.card {
+  border-color: black;
 }
 
 #keyword {
@@ -34,8 +71,6 @@ align-content: center;
   position: absolute;
   padding-left: 15%;
   padding-top: 13.5%
-
-
   
 }
 
@@ -43,17 +78,41 @@ align-content: center;
   font-family: "Open Sans Condensed", sans-serif;
   font-size: 20px;
   text-align: center;
+  font-weight: bolder;
   font-style: italic
- 
+  
 }
 
-.container h1 {
-  text-align: center;
+
+.movie-header {
+  position: fixed;
+  top: 10px;
+  text-align: top;
+  color: #fe4b1a;
+  font-family: "Bitter", serif;
+  font-size: 80px;
+  opacity: .4;
+  padding-bottom: 1.75em;
+  vertical-align: text-top;
   
+}
+
+.nearest-cinema {
+  text-align: center;
+  font-family: "Open Sans Condensed", sans-serif;
+  color: #fe4b1a;
+font-size: 40px;
+padding-top: 40px;
+font-weight: bold;
+
+/*.container h1 {
+  text-align: center;
   font-family: "Bitter", serif;
   font-size: 90px;
   color: #fea11a;
-  z-index: 1;
+  z-index: 1; 
+  
+  TEST*/
 }
 .container h2 {
   font-family: "Open Sans Condensed", sans-serif;
@@ -61,17 +120,22 @@ align-content: center;
   text-align: center;
   
   color: #fe4b1a;
-  font-style: italic;
+  font-style: italic, bold;
   z-index: 1;
   float: left;
   padding-top: 2%;
   padding-left: 1%;
 }
+
 .video-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  background-size: cover;
+  padding: 0%;
+  margin: 0%;
+  
 }
 
 p {
@@ -79,7 +143,7 @@ p {
   color: #fe4b1a;
 }
 
-#keyword {
+#keyword { 
   z-index: 1;
   align-items: center;
   display: inline, flex;
@@ -87,4 +151,6 @@ p {
 }
 
 body {
+padding: 0%;
 margin: 0%
+
