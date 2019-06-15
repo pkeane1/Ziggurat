@@ -6,11 +6,10 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  
 }
 
 .card-title {
-  color: #fe4b1a;
+  color: black;
   text-align: center;
   font-family: "Bitter", serif;
   font-size: 40px;
@@ -18,66 +17,62 @@
 }
 
 .media-body {
-  color: #fe4b1a;
+  color: black;
+  font-size: 20px;
   text-align: center;
   font-family: "Open Sans Condensed", sans-serif;
   font-style: oblique;
   overflow: scroll;
   background-color: #ffcc80;
-  border-color: #fe4b1a;
- 
-  
 }
 
-.card2{
+.card2 {
   align-content: center;
 }
 .card2-body {
-  color: #fe4b1a;
+  color: black;
   font-family: "Open Sans Condensed", sans-serif;
+  font-size: 20px;
   background-color: #ffcc80;
   text-overflow: scroll;
   align-content: center;
 }
 
-.card3{
+.card3 {
   align-content: center;
 }
 
-.card3-body{
-  color: #fe4b1a;
+.card3-body {
+  color: black;
+  font-size: 20px;
   font-family: "Open Sans Condensed", sans-serif;
   background-color: #ffcc80;
   text-overflow: scroll;
   align-content: center;
-}*/
-
+}
 .restaurant-api-response {
-  color: #fe4b1a;
+  color: black;
   font-family: "Open Sans Condensed", sans-serif;
   background-color: #ffcc80;
   text-overflow: scroll;
   align-content: center;
 }
 
-/*p.card-text {
-  width: 50rem;
-  align-content: center;
-}*/
+h5 {
+  font-size: 20px;
+}
 
 .movies {
   align-content: center;
-
 }
 
-
-
-img{
+img {
   align-content: center;
 }
 
 h3 {
-  color: #fe4b1a;
+  color: black;
+  font-size: 20px;
   font-style: italic;
   font-weight: bold;
   text-align: center;
@@ -88,32 +83,15 @@ h3 {
   align-content: center;
   margin: 0;
 }
- 
+
 #search-keyword {
   width: 175%;
   height: 25px;
-float: right;
-clear: left;
-align-content: center;
-border-color:white;
-
-
-}
-
-#general {
-  color: #fe4b1a;
-  margin-top: 10%;
-  margin-right: 45%;
   float: right;
-  font-family: "Open Sans Condensed", sans-serif;
-  text-align: center;
+  clear: left;
   align-content: center;
-  z-index: 1;
-  background-color: #ffcc80;
-  border-color: #fe4b1a
-  
+  border-color: white;
 }
-
 
 .container1 h1 {
   text-align: center;
@@ -133,23 +111,17 @@ border-color:white;
   background-color: #fea11a;
   border-color: black;
   display: inline;
-  
 }
 
 .sign-buttons {
   float: right;
 }
 
-.card {
-  border-color: black;
-}
-
 #keyword {
   align-content: center;
   position: absolute;
   padding-left: 15%;
-  padding-top: 13.5%
-  
+  padding-top: 13.5%;
 }
 
 ::placeholder {
@@ -157,33 +129,30 @@ border-color:white;
   font-size: 20px;
   text-align: center;
   font-weight: bolder;
-  font-style: italic
-  
+  font-style: italic;
 }
-
 
 .movie-header {
   position: fixed;
   top: 10px;
   text-align: top;
-  color: #fe4b1a;
+  color: black;
   font-family: "Bitter", serif;
   font-size: 80px;
-  opacity: .4;
+  opacity: 0.4;
   padding-bottom: 1.75em;
   vertical-align: text-top;
-  
 }
 
 .nearest-cinema {
   text-align: center;
   font-family: "Open Sans Condensed", sans-serif;
-  color: #fe4b1a;
-font-size: 40px;
-padding-top: 40px;
-font-weight: bold;
+  color: black;
+  font-size: 40px;
+  padding-top: 40px;
+  font-weight: bold;
 
-/*.container h1 {
+  /*.container h1 {
   text-align: center;
   font-family: "Bitter", serif;
   font-size: 90px;
@@ -196,7 +165,6 @@ font-weight: bold;
   font-family: "Open Sans Condensed", sans-serif;
   font-size: 30px;
   text-align: center;
-  
   color: #fe4b1a;
   font-style: italic, bold;
   z-index: 1;
@@ -213,7 +181,6 @@ font-weight: bold;
   background-size: cover;
   padding: 0%;
   margin: 0%;
-  
 }
 
 p {
@@ -221,14 +188,15 @@ p {
   color: #fe4b1a;
 }
 
-#keyword { 
+#keyword {
   z-index: 1;
   align-items: center;
   display: inline, flex;
   flex-flow: row wrap;
 }
 
-body {
-padding: 0%;
-margin: 0%
-
+.body {
+  padding: 0%;
+  margin: 0%;
+  background-color: #ffcc80;
+}
