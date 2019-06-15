@@ -7,21 +7,19 @@ http://someapi.movies.com/movies?year=1999&genre=something&
 english
 */
 
-$("#search-button").on("click", function(event) {
-  event.preventDefault();
-  // console.log("I've been clicked");
-  var keyword = $("#search-keyword")
-    .val()
-    .trim();
-  $(".container").hide();
+// $(".movieImgClass").on("click", function(event) {
+//   event.preventDefault();
+//   console.log("I've been clicked");
+  var keyword = genreID;
+  // $(".container").hide();
 
   // $("") .show();
-
+function getRestaurant() {
   var apiKey =
     "8rhhmRF5-FCynUFAaqinWGdHndqLlsEQhouEibkZ1QuZsgHj6sRXs7W-TaE8UU0yNEP2JUDnYwBREiqRLlzik-FDZydCEk3oWR4J4gTO6GLIcVaThRBREy2hyvP2XHYx";
   var queryURL =
     corsProxy +
-    "https://api.yelp.com/v3/businesses/search?term=restaurants&location=10475&categories=" +
+    "https://api.yelp.com/v3/businesses/search?term=restaurants&location="+cityName +"&categories=" +
     keyword +
     "&limit=10";
 
@@ -57,4 +55,5 @@ $("#search-button").on("click", function(event) {
       $("#restaurant-api-response").append(picture);
     }
   });
-});
+// }  );
+}
