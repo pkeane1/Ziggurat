@@ -1,4 +1,4 @@
-.container {
+.container1 {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -9,7 +9,65 @@
   
 }
 
+.card-title {
+  color: #fe4b1a;
+  text-align: center;
+  font-family: "Bitter", serif;
+  font-size: 40px;
+  background-color: #ffcc80;
+}
 
+.media-body {
+  color: #fe4b1a;
+  text-align: center;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-style: oblique;
+  overflow: scroll;
+  background-color: #ffcc80;
+  border-color: #fe4b1a;
+ 
+  
+}
+
+.card2{
+  align-content: center;
+}
+.card2-body {
+  color: #fe4b1a;
+  font-family: "Open Sans Condensed", sans-serif;
+  background-color: #ffcc80;
+  text-overflow: scroll;
+  align-content: center;
+}
+
+/*p.card-text {
+  width: 50rem;
+  align-content: center;
+}*/
+
+.movies {
+  align-content: center;
+
+}
+
+
+
+img{
+  align-content: center;
+}
+
+h3 {
+  color: #fe4b1a;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+.card {
+  align-content: center;
+  margin: 0;
+}
  
 #search-keyword {
   width: 175%;
@@ -37,7 +95,7 @@ border-color:white;
 }
 
 
-.container h1 {
+.container1 h1 {
   text-align: center;
   font-family: "Bitter", serif;
   font-size: 90px;
@@ -114,7 +172,7 @@ font-weight: bold;
   
   TEST*/
 }
-.container h2 {
+.container1 h2 {
   font-family: "Open Sans Condensed", sans-serif;
   font-size: 30px;
   text-align: center;
